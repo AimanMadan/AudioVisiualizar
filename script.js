@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+
+document.addEventListener('DOMContentLoaded', () =>
+     {
     const canvas = document.getElementById('visualizer'); // Get the canvas element
     const audioFile = document.getElementById('audioFile'); // Get the file input element
     const playPauseButton = document.getElementById('playPause'); // Get the play/pause button
@@ -118,13 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
             let x = 0;
 
             // Loop through the first quarter of the frequency data to focus on the lower end
-            for (let i = 0; i < bufferLength / 4; i++) {
+            for (let i = 2; i < bufferLength / 4; i++) {
                 barHeight = dataArray[i];
 
                 // Set the bar color with transparency
-                ctx.fillStyle = `rgba(255, 255, 255, 0.3)`; // White with 60% opacity
+                ctx.fillStyle = `rgba(255, 255, 255, 0.4)`; // White with 60% opacity
                 // Draw the bar
                 ctx.fillRect(x, HEIGHT - barHeight / 3, barWidth, barHeight);
+                ctx.clearRect(45, 45, 60, 60);
 
                 x += barWidth + 1; // Move to the next bar position
             }
